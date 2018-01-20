@@ -10,19 +10,19 @@ import si.silogwatch.transfer.LogWatchDTO;
 import java.util.List;
 
 @Controller
-public class StationsWebSocketController {
+public class LogsWebSocketController {
 
     //@Autowired
     //private ILogWatchService logWatchService;
 
-    @MessageMapping("/basestations")
-    @SendTo("/topic/basestations")
+    @MessageMapping("/logs")
+    @SendTo("/topic/logs")
     public List<LogWatchDTO> getAll() throws Exception {
         return null;
     }
 
-    @MessageMapping("/station")
-    @SendTo("/topic/basestations")
+    @MessageMapping("/log")
+    @SendTo("/topic/logs")
     public List<LogWatchDTO> create(LogWatchDTO stationDTO) throws Exception {
         // logWatchService.createStation(stationDTO);
         return null; //logWatchService.getAllStationsDTO();
@@ -32,6 +32,7 @@ public class StationsWebSocketController {
     @SendTo("/topic/greetings")
     public Greeting greeting2(HelloMessage message) throws Exception {
         Thread.sleep(1000); // simulated delay
+        System.out.println(message);
         return new Greeting("Hello, " + message.getName() + "!");
     }
 
