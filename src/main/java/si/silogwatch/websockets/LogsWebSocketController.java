@@ -5,6 +5,8 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 //import si.silogwatch.service.ILogWatchService;
+import si.silogwatch.model.LogWatch;
+import si.silogwatch.persistence.LogMemory;
 import si.silogwatch.transfer.LogWatchDTO;
 
 import java.util.List;
@@ -17,8 +19,8 @@ public class LogsWebSocketController {
 
     @MessageMapping("/logs")
     @SendTo("/topic/logs")
-    public List<LogWatchDTO> getAll() throws Exception {
-        return null;
+    public List<LogWatch> getAll() throws Exception {
+        return LogMemory.getInstance().getAllLogs();
     }
 
     @MessageMapping("/log")
