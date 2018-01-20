@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import si.silogwatch.service.ILogWatchService;
+//import si.silogwatch.service.ILogWatchService;
 import si.silogwatch.transfer.LogWatchDTO;
 
 import java.util.List;
@@ -12,8 +12,8 @@ import java.util.List;
 @Controller
 public class StationsWebSocketController {
 
-    @Autowired
-    private ILogWatchService logWatchService;
+    //@Autowired
+    //private ILogWatchService logWatchService;
 
     @MessageMapping("/basestations")
     @SendTo("/topic/basestations")
