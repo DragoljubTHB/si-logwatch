@@ -1,11 +1,13 @@
 package si.silogwatch.rest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import si.silogwatch.model.LogWatch;
 import si.silogwatch.persistence.LogMemory;
+import si.silogwatch.service.ILogWatchService;
 
 import java.net.URI;
 import java.util.List;
@@ -14,12 +16,15 @@ import java.util.List;
 @RequestMapping("/api/logs")
 public class LogWatchesRESTController {
 
+    @Autowired
+    private ILogWatchService logWatchService;
+
 
     @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     List<LogWatch> getAllStations() {
-        return LogMemory.getInstance().getAllLogs();
+        return logWatchService.findAll();
     }
 
     @CrossOrigin(origins = "*")

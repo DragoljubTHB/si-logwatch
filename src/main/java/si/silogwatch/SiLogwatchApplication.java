@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan("si.silogwatch")
+@ComponentScan("si.silogwatch")
 //@EntityScan(basePackages = { "si.silogwatch.model" })
 public class SiLogwatchApplication {
 

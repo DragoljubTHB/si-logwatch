@@ -5,8 +5,12 @@ package si.silogwatch.repository;
 import si.silogwatch.model.LogWatch;
 
 import javax.inject.Named;
+import java.util.List;
 import java.util.UUID;
 
-@Named
+
 public interface ILogWatchRepository /* extends JpaRepository<LogWatch, UUID>, JpaSpecificationExecutor<LogWatch>*/{
+    List<LogWatch> findAll();
+
+    void/*Maybe<LogWatch>*/ create(LogWatch logWatch);
 }
