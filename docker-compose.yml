@@ -1,4 +1,4 @@
-version: '3'
+version: '2.0'
 services:
   si-logwatch:
     build:
@@ -7,8 +7,3 @@ services:
     image: dado/si-logwatch
     ports:
       - 8080
-    networks:
-      - si
-
-networks:
-  si:
