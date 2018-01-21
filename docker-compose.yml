@@ -1,0 +1,14 @@
+version: '3'
+services:
+  si-logwatch:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: dado/si-logwatch
+    ports:
+      - 8080
+    networks:
+      - si
+
+networks:
+  si:
