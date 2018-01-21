@@ -3,10 +3,12 @@ package si.silogwatch.rest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import si.silogwatch.repository.ILogWatchRepository;
 
@@ -15,7 +17,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class LogWatchRessourceIT extends ITBase{
+
+@RunWith(SpringRunner.class)
+@WebMvcTest(LogWatchesRESTController.class)
+public class LogWatchRessourceIT {
 
     @Autowired
     private MockMvc mvc;
@@ -23,17 +28,13 @@ public class LogWatchRessourceIT extends ITBase{
     @MockBean
     private ILogWatchRepository logWatchRepository;
 
-    @Override
     @Before
     public void setup() {
-        super.setup();
         System.out.println("logwatch setup @before");
     }
 
-    @Override
     @After
     public void cleanup() {
-        super.cleanup();
         System.out.println("logwatch clean up @after");
     }
 

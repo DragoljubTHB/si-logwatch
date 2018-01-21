@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = { "spring.profiles.active:test" })
-@WebMvcTest(LogWatchesRESTController.class)
 public class ITBase {
     @LocalServerPort
     int port;
