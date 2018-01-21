@@ -31,7 +31,7 @@ public class LogWatchesRESTController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> add(@RequestBody LogWatch logWatchInput) {
         System.out.println(logWatchInput);
-        LogMemory.getInstance().put(logWatchInput);
+        logWatchService.create(logWatchInput);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
                 .buildAndExpand(logWatchInput.getId()).toUri();
